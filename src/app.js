@@ -3,18 +3,18 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config.env" });
+
+const app = express();
+app.use(express.json());
+
 app.use(
   cors({
     origin: "http://localhost:3000/",
     methods: ["GET", "POST"],
   })
 );
-
-const dotenv = require("dotenv");
-dotenv.config({ path: "./config.env" });
-
-const app = express();
-app.use(express.json());
 
 if (process.env.NODE_ENV === "development") {
   console.log("development mode");

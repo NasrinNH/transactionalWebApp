@@ -1,6 +1,14 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "http://localhost:3000/",
+    methods: ["GET", "POST"],
+  })
+);
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });

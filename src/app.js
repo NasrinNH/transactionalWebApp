@@ -10,10 +10,16 @@ const app = express();
 app.use(express.json());
 
 app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-  })
+  cors(
+    {
+      origin: "http://localhost:3000",
+      methods: ["GET", "POST"],
+    },
+    {
+      origin: "https://webappassignment-unxe.onrender.com",
+      methods: ["GET", "POST"],
+    }
+  )
 );
 
 if (process.env.NODE_ENV === "development") {
